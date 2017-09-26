@@ -1,0 +1,27 @@
+group 'md.utm.fcim'
+version '1.0-SNAPSHOT'
+
+allprojects {
+    apply plugin: "java"
+    apply plugin: "idea"
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+subprojects {
+
+    dependencies {
+        compile group: 'com.google.guava', name: 'guava', version: '22.0'
+        compile group: 'org.json', name: 'json', version: '20160810'
+    }
+
+    // create default directories in modules -> { main { java , resources } ; test { java , resources }
+    task "create-dirs" << {
+        sourceSets*.java.srcDirs*.each { it.mkdirs() }
+        sourceSets*.resources.srcDirs*.each { it.mkdirs() }
+    }
+}

@@ -1,0 +1,6 @@
+rootProject.name = 'Pad_Lab1'
+include 'broker'
+include 'sender'
+include 'receiver'
+include 'common'
+
