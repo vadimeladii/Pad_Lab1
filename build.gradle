@@ -17,6 +17,7 @@ subprojects {
     dependencies {
         compile group: 'com.google.guava', name: 'guava', version: '22.0'
         compile group: 'org.json', name: 'json', version: '20160810'
+        compile group: 'com.google.code.gson', name: 'gson', version: '2.3.1'
     }
 
     // create default directories in modules -> { main { java , resources } ; test { java , resources }
