@@ -2,13 +2,3 @@ group 'md.utm.fcim'
 version '1.0-SNAPSHOT'
 
 ext.moduleName = 'common'
-
-compileJava {
-    inputs.property("moduleName", moduleName)
-    doFirst {
-        options.compilerArgs = [
-                '--module-path', classpath.asPath,
-        ]
-        classpath = files()
-    }
-}

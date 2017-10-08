@@ -1,7 +1,7 @@
 package md.utm.fcim.receiver;
 
-import com.google.gson.Gson;
 import md.utm.fcim.common.Mesaj;
+import md.utm.fcim.common.converter.JsonConverter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -21,9 +21,7 @@ public class Main {
                 PrintWriter out = new
                         PrintWriter(fromserver.getOutputStream(), true);
                 Mesaj mes = new Mesaj("read", "");
-                Gson gson = new Gson();
-                String jmes = gson.toJson(mes);
-                out.println(jmes);
+                out.println(JsonConverter.converterToJson(mes));
                 String input = in.readLine();
                 if (input != null) {
                     System.out.println(input);

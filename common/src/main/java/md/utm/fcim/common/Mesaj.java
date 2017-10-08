@@ -1,13 +1,34 @@
 package md.utm.fcim.common;
 
-public class Mesaj {
+import java.io.Serializable;
+
+public class Mesaj implements Serializable {
 
     public String message;
     public String command;
 
-    public Mesaj(String send, String mymes) {
-        this.command = send;
-        this.message = mymes;
+    public Mesaj() {
+    }
+
+    public Mesaj(String message, String command) {
+        this.message = message;
+        this.command = command;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getCommand() {
+        return command;
+    }
+
+    public void setCommand(String command) {
+        this.command = command;
     }
 
     @Override
