@@ -5,6 +5,8 @@ import com.google.gson.GsonBuilder;
 
 public class JsonConverter {
 
+    private JsonConverter() { }
+
     public static <T> T converterToObject(String json, Class<T> jsonType) {
         return createInstanceOfGson().fromJson(json, jsonType);
     }

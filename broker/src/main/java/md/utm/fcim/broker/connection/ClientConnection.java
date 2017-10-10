@@ -1,4 +1,6 @@
-package md.utm.fcim.broker;
+package md.utm.fcim.broker.connection;
+
+import md.utm.fcim.common.dto.Message;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -16,6 +18,25 @@ public class ClientConnection {
             this.socket = socket;
             objectOutputStream = new ObjectOutputStream(this.socket.getOutputStream());
             objectInputStream = new ObjectInputStream(this.socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void sendToClient(Message message) {
+        try {
+            getObjectOutputStream().writeObject(message);
+            getObjectOutputStream().flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public void closeConnection() {
+        try {
+            objectInputStream.close();
+            this.socket.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,4 +74,6 @@ public class ClientConnection {
                 ", objectInputStream=" + objectInputStream +
                 '}';
     }
+
+
 }
