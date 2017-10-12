@@ -15,7 +15,6 @@ public class Main {
         User myUser = new User("vadim");
         Message mes = new Message(myUser, "hi", MessageStatus.INIT, UserType.SENDER);
         ServerConnection serverConnection = CreateConnection.getINSTANCE().build(mes, 4445).getServerConnection();
-        Thread.sleep(2000);
         serverConnection.write(new Message(myUser, "message1", MessageStatus.DATA));
         serverConnection.write(new Message(myUser, "message2", MessageStatus.DATA));
         serverConnection.close();

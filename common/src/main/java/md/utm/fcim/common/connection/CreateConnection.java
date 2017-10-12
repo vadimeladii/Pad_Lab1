@@ -1,5 +1,6 @@
 package md.utm.fcim.common.connection;
 
+import md.utm.fcim.common.connection.impl.ServerConnectionImpl;
 import md.utm.fcim.common.dto.Message;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class CreateConnection {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        serverConnection = new ServerConnection(socket);
+        serverConnection = new ServerConnectionImpl(socket);
         serverConnection.write(message);
         return this;
     }
