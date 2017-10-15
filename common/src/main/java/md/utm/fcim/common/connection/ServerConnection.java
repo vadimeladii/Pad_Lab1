@@ -14,5 +14,7 @@ public interface ServerConnection {
     ObjectInputStream getObjectInputStream();
 
     ObjectOutputStream getObjectOutputStream();
+
+    void subscribeToChannel(String channelName);
 }
 

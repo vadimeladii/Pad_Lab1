@@ -8,10 +8,13 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServerConnectionImpl implements ServerConnection {
 
     private Socket socket;
+    private List<String> subscribers = new ArrayList<>();
     protected ObjectInputStream objectInputStream;
     protected ObjectOutputStream objectOutputStream;
 
@@ -27,12 +30,18 @@ public class ServerConnectionImpl implements ServerConnection {
     }
 
     private Runnable messageListener() {
-
         return () -> {
             while (!this.socket.isClosed()) {
                 try {
                     Message message = (Message) getObjectInputStream().readObject();
-                    System.out.println(message);
+                    System.out.println("+ -> " + message);
+                    subscribers.forEach(subscriber -> {
+                        if (message.getChannel() == null) {
+                            System.out.println(message);
+                        } else if (subscriber.equals(message.getChannel())) {
+                            System.out.println(message);
+                        }
+                    });
                 } catch (IOException | ClassNotFoundException e) {
                     System.out.println("Server connection interrupted.");
                     try {
@@ -52,6 +61,10 @@ public class ServerConnectionImpl implements ServerConnection {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void subscribeToChannel(String channelName) {
+        subscribers.add(channelName);
     }
 
     public void close() {

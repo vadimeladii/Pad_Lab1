@@ -13,6 +13,7 @@ public class Message implements Serializable {
     private String message;
     private MessageStatus messageStatus;
     private UserType userType;
+    private String channel;
 
     public Message() {
     }
@@ -22,6 +23,13 @@ public class Message implements Serializable {
         this.message = message;
         this.messageStatus = messageStatus;
         this.userType = userType;
+    }
+
+    public Message(User user, String message, MessageStatus messageStatus, String channel) {
+        this.user = user;
+        this.message = message;
+        this.messageStatus = messageStatus;
+        this.channel = channel;
     }
 
     public Message(User user, String message, MessageStatus messageStatus) {
@@ -62,6 +70,14 @@ public class Message implements Serializable {
         this.userType = userType;
     }
 
+    public String getChannel() {
+        return channel;
+    }
+
+    public void setChannel(String channel) {
+        this.channel = channel;
+    }
+
     @Override
     public String toString() {
         return "Message{" +
@@ -69,6 +85,7 @@ public class Message implements Serializable {
                 ", message='" + message + '\'' +
                 ", messageStatus=" + messageStatus +
                 ", userType=" + userType +
+                ", channel=" + channel +
                 '}';
     }
 }

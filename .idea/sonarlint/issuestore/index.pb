@@ -15,8 +15,6 @@ a
 1sender/src/main/java/md/utm/fcim/sender/Main.java,d/4/d4f081109d29a682db1dbdaa5a8ebd95c7804cce
 a
 1broker/src/main/java/md/utm/fcim/broker/Main.java,d/8/d84b0cdf8e6f47c70e3e92fa0cb297718922bb60
-t
-Dcommon/src/main/java/md/utm/fcim/common/converter/JsonConverter.java,2/a/2a50d130ca7b1d0537c12fbd3b87ecf7f2fb09d4
 e
 5broker/src/main/java/md/utm/fcim/broker/mq/PadMQ.java,2/f/2f9d2967c3c55af5a4cf6da51a9237ad0ea30da2
 :
@@ -44,3 +42,5 @@ Nreceiver/src/main/java/md/utm/fcim/receiver/connection/ReceiverConnection.java
 Qcommon/src/main/java/md/utm/fcim/common/connection/impl/ServerConnectionImpl.java,5/5/553d964bca18e0ab9d0aa8f56f25189be489f722
 x
 Hcommon/src/main/java/md/utm/fcim/common/connection/ServerConnection.java,e/c/ec01aa4a7f285625a54dc7564c10acde6310ee33
+s
+Cbroker/src/main/java/md/utm/fcim/broker/channel/ChannelService.java,b/d/bdeb682f4b00f53a244c0979b038fabd47a1d107

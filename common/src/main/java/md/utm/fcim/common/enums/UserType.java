@@ -1,6 +1,6 @@
 package md.utm.fcim.common.enums;
 
-public enum  UserType {
+public enum UserType {
     SENDER("SENDER"), RECEIVER("REVEIVER");
 
     private String type;

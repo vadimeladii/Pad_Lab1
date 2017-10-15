@@ -25,6 +25,7 @@ public class ClientConnection {
 
     public void sendToClient(Message message) {
         try {
+            System.out.println("Send message to client -> " + message);
             getObjectOutputStream().writeObject(message);
             getObjectOutputStream().flush();
         } catch (IOException e) {
