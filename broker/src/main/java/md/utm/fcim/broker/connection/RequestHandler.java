@@ -3,6 +3,8 @@ package md.utm.fcim.broker.connection;
 import md.utm.fcim.broker.channel.ChannelService;
 import md.utm.fcim.common.dto.Message;
 import md.utm.fcim.common.enums.UserType;
+import md.utm.fcim.common.repository.MessageRepository;
+import md.utm.fcim.common.repository.impl.MessageRepositoryImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,8 +17,11 @@ public class RequestHandler {
     private List<ClientConnection> clientConnections = new ArrayList<>();
     private List<ChannelService> channelServices = new ArrayList<>();
     private ConcurrentLinkedQueue<Message> messages = new ConcurrentLinkedQueue<>();
+    private MessageRepository messageRepository = new MessageRepositoryImpl();
 
     public RequestHandler() {
+        messages = messageRepository.findAll();
+        this.saveMessages();
     }
 
     public void add(ClientConnection clientConnection) {
@@ -43,6 +48,19 @@ public class RequestHandler {
                 e.printStackTrace();
             }
         }
+    }
+
+    private void saveMessages() {
+        new Thread(() -> {
+            while (true) {
+                try {
+                    Thread.sleep(3000);
+                    messageRepository.save(messages);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     private void dispatch(Message message) {
