@@ -16,6 +16,9 @@
 .idea/**/gradle.xml
 .idea/**/libraries
 
+# SonarQube
+.idea/sonarlint
+
 # IntelliJ
 out/
 
