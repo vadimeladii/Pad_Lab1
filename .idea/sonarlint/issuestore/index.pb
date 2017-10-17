@@ -12,8 +12,6 @@ C
 e
 5receiver/src/main/java/md/utm/fcim/receiver/Main.java,a/3/a309ef1052ae6faccc2893425314614b123fc0d9
 a
-1sender/src/main/java/md/utm/fcim/sender/Main.java,d/4/d4f081109d29a682db1dbdaa5a8ebd95c7804cce
-a
 1broker/src/main/java/md/utm/fcim/broker/Main.java,d/8/d84b0cdf8e6f47c70e3e92fa0cb297718922bb60
 e
 5broker/src/main/java/md/utm/fcim/broker/mq/PadMQ.java,2/f/2f9d2967c3c55af5a4cf6da51a9237ad0ea30da2

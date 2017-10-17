@@ -32,7 +32,7 @@ public class RequestHandler {
                     case INIT:
                         this.handleMessageWithTypeInit(clientConnection, message);
                         break;
-                    case SINGLE:
+                    case SIMPLE:
                         this.handleMessageWithTypeSingle(clientConnection, message);
                         break;
                     case CHANNEL:
@@ -90,9 +90,10 @@ public class RequestHandler {
     }
 
     private void handleMessageWithTypeSingle(ClientConnection clientConnection, Message message) {
-        System.out.println("Request Handler SINGLE");
+        System.out.println("Request Handler SIMPLE");
         messages.add(message);
         dispatch(message);
+        System.out.println("message -> " + message.getMessage());
         System.out.println("----------------------------------------------------------------------------");
     }
 

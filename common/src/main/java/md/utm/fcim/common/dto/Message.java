@@ -38,6 +38,16 @@ public class Message implements Serializable {
         this.messageStatus = messageStatus;
     }
 
+    public Message(MessageStatus messageStatus, UserType userType) {
+        this.messageStatus = messageStatus;
+        this.userType = userType;
+    }
+
+    public Message(MessageStatus messageStatus, String channel) {
+        this.messageStatus = messageStatus;
+        this.channel = channel;
+    }
+
     public User getUser() {
         return user;
     }

@@ -1,7 +1,7 @@
 package md.utm.fcim.common.enums;
 
 public enum MessageStatus {
-    INIT("INIT"), CLOSE("CLOSE"), SINGLE("SINGLE"), CHANNEL("CHANNEL");
+    INIT("INIT"), CLOSE("CLOSE"), SIMPLE("SIMPLE"), CHANNEL("CHANNEL");
 
     private String status;
 

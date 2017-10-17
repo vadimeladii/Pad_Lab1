@@ -34,11 +34,11 @@ public class ServerConnectionImpl implements ServerConnection {
             while (!this.socket.isClosed()) {
                 try {
                     Message message = (Message) getObjectInputStream().readObject();
-                    System.out.println("+ -> " + message);
+                    if(message.getChannel() == null) {
+                        System.out.println("message -> " + message.getMessage() + ": user_name -> " + message.getUser().getName());
+                    }
                     subscribers.forEach(subscriber -> {
-                        if (message.getChannel() == null) {
-                            System.out.println(message);
-                        } else if (subscriber.equals(message.getChannel())) {
+                        if (subscriber.equals(message.getChannel())) {
                             System.out.println(message);
                         }
                     });

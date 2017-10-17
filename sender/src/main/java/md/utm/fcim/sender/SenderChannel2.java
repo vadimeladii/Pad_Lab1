@@ -7,22 +7,23 @@ import md.utm.fcim.common.dto.User;
 import md.utm.fcim.common.enums.MessageStatus;
 import md.utm.fcim.common.enums.UserType;
 
-public class SenderSimple2 {
+public class SenderChannel2 {
+
     public static void main(String[] args) {
-        System.out.println("Welcome to SenderSimple2");
-        User user = new User("Simple2");
-        Message message = new Message(MessageStatus.INIT, UserType.SENDER);
-        ServerConnection serverConnection = CreateConnection.getINSTANCE().build(message, 4445).getServerConnection();
+        System.out.println("Welcome to SenderChannel2");
+        User myUser = new User("SenderChannel2");
+        Message mes = new Message(MessageStatus.INIT, UserType.SENDER);
+        ServerConnection serverConnection = CreateConnection.getINSTANCE().build(mes, 4445).getServerConnection();
+        serverConnection.write(new Message(MessageStatus.CHANNEL, "channel2"));
         while (true) {
             try {
-                Thread.sleep(4000);
-                Message msg = new Message(user, "message2", MessageStatus.SIMPLE);
+                Thread.sleep(2000);
+                Message msg = new Message(myUser, "message4", MessageStatus.SIMPLE, "channel2");
                 serverConnection.write(msg);
                 System.out.println(msg);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-//        serverConnection.close();
     }
 }

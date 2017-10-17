@@ -23,7 +23,7 @@ public class MessageRepositoryImpl implements MessageRepository {
             // Convert JSON string from file to Object
             messages = mapper.readValue(new File("/home/veladii/IdeaProjects/Pad_Lab1/common/src/main/resources/messages.json"), new TypeReference<List<Message>>() {
             });
-            messages.forEach(System.out::println);
+//            messages.forEach(System.out::println);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,19 +33,11 @@ public class MessageRepositoryImpl implements MessageRepository {
 
     @Override
     public void save(ConcurrentLinkedQueue<Message> messages) {
-        messages.forEach(System.out::println);
+//        messages.forEach(System.out::println);
         ObjectMapper mapper = new ObjectMapper();
         try {
             // Convert object to JSON string and save into a file directly
             mapper.writeValue(new File("/home/veladii/IdeaProjects/Pad_Lab1/common/src/main/resources/messages.json"), messages);
-
-            // Convert object to JSON string
-            String jsonInString = mapper.writeValueAsString(messages);
-            System.out.println(jsonInString);
-
-            // Convert object to JSON string and pretty print
-            jsonInString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(messages);
-            System.out.println(jsonInString);
 
         } catch (IOException e) {
             e.printStackTrace();
